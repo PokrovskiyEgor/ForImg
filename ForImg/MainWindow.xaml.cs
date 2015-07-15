@@ -21,37 +21,45 @@ namespace ForImg
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
 
         public MainWindow()
         {
             InitializeComponent();
             //
-          
+
         }
         public void Button1_Click(object sender, RoutedEventArgs e)
         {
-            BitmapImage myBitmapImage = new BitmapImage();
-            myBitmapImage.BeginInit();
-            myBitmapImage.UriSource = new Uri(@text1.Text);
-            myBitmapImage.EndInit();
-            FormatConvertedBitmap gray = new FormatConvertedBitmap(myBitmapImage, PixelFormats.Gray4, null, 0);
-            myImage.Source = gray;
-            var enc = new JpegBitmapEncoder();
-            enc.Frames.Add(BitmapFrame.Create(gray));
-            using (var s = File.Create("gray.jpg"))
-                enc.Save(s);
-        }
-       /* public void Button2_Click(object sender, RoutedEventArgs e)
-        {
-            BitmapImage myBitmapImage = new BitmapImage();
-            myBitmapImage.BeginInit();
-            myBitmapImage.UriSource=new Uri(myImage);
-            myBitmapImage.EndInit();
-            var enc = new JpegBitmapEncoder();
-            enc.Frames.Add(BitmapFrame.Create(gray));
-            using (var s = File.Create("gray.jpg"))
-                enc.Save(s);*/
+            try
+            {
+                BitmapImage myBitmapImage = new BitmapImage();
+                myBitmapImage.BeginInit();
+                myBitmapImage.UriSource = new Uri(@text1.Text);
+                myBitmapImage.EndInit();
+                FormatConvertedBitmap gray = new FormatConvertedBitmap(myBitmapImage, PixelFormats.Gray4, null, 0);
+                myImage.Source = gray;
+                var enc = new JpegBitmapEncoder();
+                enc.Frames.Add(BitmapFrame.Create(gray));
+                using (var s = File.Create("gray.jpg"))
+                    enc.Save(s);
+            }
+            catch
+            {
+                text1.Text = "Не верно введен путь";
+            }
+
+            /* public void Button2_Click(object sender, RoutedEventArgs e)
+             {
+                 BitmapImage myBitmapImage = new BitmapImage();
+                 myBitmapImage.BeginInit();
+                 myBitmapImage.UriSource=new Uri(myImage);
+                 myBitmapImage.EndInit();
+                 var enc = new JpegBitmapEncoder();
+                 enc.Frames.Add(BitmapFrame.Create(gray));
+                 using (var s = File.Create("gray.jpg"))
+                     enc.Save(s);*/
         }
     }
+}
 

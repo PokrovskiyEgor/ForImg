@@ -1,14 +1,14 @@
 ﻿<Window x:Class="ForImg.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Image HorizontalAlignment="Left" Height="169" VerticalAlignment="Top" Width="303" Name="myImage" Margin="100,10,0,0"/>
-        <Button Content="Load" HorizontalAlignment="Left" Margin="173,269,0,0" VerticalAlignment="Top" Width="159" Click="Button1_Click"/>
-        <!--Button Content="Save" HorizontalAlignment="Left" Margin="173,294,0,0" VerticalAlignment="Top" Width="159" Click="Button2_Click"/>-->
-        <TextBox HorizontalAlignment="Left" Height="39" Margin="173,225,0,0" TextWrapping="Wrap"
+        Title="Do Gray" Height="355" Width="519" ResizeMode="NoResize">
+    <Grid Margin="0,0,67,15">
+        <Image Height="273" VerticalAlignment="Top" Name="myImage" Margin="10,40,1,0"/>
+        <Button Content="Do" HorizontalAlignment="Left" Margin="350,10,0,0"
+                VerticalAlignment="Top" Width="86" Click="Button1_Click" Height="25"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" TextWrapping="Wrap"
                  Text="введите путь к изображению (например C:\test.jpg)" 
-                 VerticalAlignment="Top" Width="159" Name="text1"/>
+                 VerticalAlignment="Top" Width="335" Name="text1"/>
 
     </Grid>
 </Window>
